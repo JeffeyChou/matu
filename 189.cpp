@@ -12,5 +12,30 @@
 #include<math.h>
 int main()
 {
-    
+    int m,score[100];
+    int n,low=0,high,mid;
+    scanf("%d",&n);
+    high=n;
+	for(int i=0;i<n;i++)
+	{
+		scanf("%d,",&score[i]);
+	}
+	scanf("%d",&m);
+    mid=(high+low)/2;
+	while(low<=high)
+	{
+	    if(m==score[mid])
+	    {
+			printf("%d",mid+1);
+			break;
+		}
+	    if(score[mid] > m)
+	        high = mid-1;
+	    else if(score[mid] < m)
+	        low = mid+1;
+        mid = (low+high)/2;
+	}
+
+system("pause");
+return 0; 
 }
