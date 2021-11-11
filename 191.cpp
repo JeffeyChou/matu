@@ -1,12 +1,11 @@
-// 编写程序，输入整数n，动态分配保存n个整数的存储器，然后输入n个整数保存到存储器中。最后，将这n个整数从小到大输出。
-// 例如：
-// 输入如下：
-// 10回车
-// 10 9 8 7 6 5 4 3 2 1回车
-// 则输出
-// 1,2,3,4,5,6,7,8,9,10
+// 输入3个整数，用指针指向最大整数并输出
+// 输入:
+// 1 2 3
+// 输出:
+// 3
 #include<stdio.h>
 #include<stdlib.h>
+#include<math.h>
 void change(int a[], int n)
 {
     int j,k,temp;
@@ -26,7 +25,7 @@ void change(int a[], int n)
 int main()
 {
     int n,*p,temp;
-    scanf("%d",&n);
+    n=3;
     p =(int * ) malloc(n * sizeof(int));
     if (p == NULL) return -1 ;
     for (int i = 0; i < n; i++)
@@ -34,13 +33,6 @@ int main()
         scanf("%d",&p[i]);
     }
     change(p,n);
-    for (int l = 0; l < n; l++)
-    {
-        printf("%d",p[l]);
-        if (l != n-1)
-        {
-            printf(",");
-        }
-    }
+        printf("%d",p[n-1]);
     return 0;
 }

@@ -15,6 +15,21 @@ int main()
 {
     char s1[2*s +1], s2[s+1];
     char *p=s1,*q=s2;
+    int n=0;
     scanf("%s",s2,s);
-    
+    while (*q != '\0')
+    {
+        *p=*q;
+        n++;
+        if (n%3 == 0)
+        {
+            *p ='*';
+            q--;  
+        }
+        p++;
+        q++;    
+    }
+    *p = '\n';
+    printf("%s\n",s1);
+    return 0;
 }
