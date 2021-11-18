@@ -18,30 +18,32 @@
 // };
 #include<stdio.h>
 #include<stdlib.h>
-#include<math.h>
-#include<time.h>
 struct node
 {
     int data;
     struct node *next;
 };
-int mail1(int data[],int n);
-void printlist(struct node *header);
-void freelist(struct node *header);
-int main()
+int main(int data[],int n)
 {
-    int n, *a;
-    struct node *header;
-    srand(unsigned(time(NULL)));
-    scanf("%d",&n);
-    a = (int*)malloc(n * sizeof(int));
-    if (!a) return 0;
+    struct node *header,*tail;
+    if (!data)
+    {
+        printf("error");
+        return (int)NULL;
+    }
+    tail = header = (struct node*) malloc(sizeof(struct node));
+    tail=header;
+    header->data=0;
+    header->next=NULL;
     for(int i = 0; i<n; ++i)
     {
-        a[i]= rand() % 100;
+        struct node *pend = (struct node*) malloc(sizeof(struct node));
+    pend->data=data[i];
+    pend->next=NULL;
+    header->next=pend;
+    header = pend;
     }
-    header = (struct node *)mail1(a,n);
-    printlist(header);
-    freelist(header);
-    return 0;
-};
+    header = tail;
+    return (int)header;
+}
+

@@ -12,12 +12,20 @@
 #include<math.h>
 int main()
 {
-    char s1[60];
-    char *p=s1;
-    scanf("%s",s1,60);
-    for (int i = 0; i < 60; i++)
+    char s[60];
+    int letter=0,digits=0,i=0;
+    while ((s[i] =getchar()) != '\n')
     {
-        
+        if ((s[i] >= 'A') && (s[i] <= 'z'))
+        {
+            letter++;
+        }
+        if ((s[i] >= '0') && (s[i] <= '9'))
+        {
+            digits++;
+        }
+        i++;
     }
-    
+    printf("letters:%d,digits:%d",letter,digits);
+    return 0;
 }
