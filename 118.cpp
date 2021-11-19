@@ -9,3 +9,23 @@
 // 例如：
 // n为：400
 // find函数应返回3
+# include <stdio.h>
+int find(int n)
+{
+    if (n <= 100 || n > 999 )
+    {
+        return 0;
+    }
+    int flag=0;
+    for(int i=100; i<=n; ++i)
+    {
+        int a=i%10;
+        int b = i/10%10;
+        int c = i/100;
+        if(a*a*a+b*b*b+c*c*c==i)
+        {
+            flag++;
+        }
+    }
+    return flag;
+}   

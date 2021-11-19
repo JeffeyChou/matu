@@ -13,8 +13,9 @@
 
 // 注意：
 // 遇到异常情况，输出"error"；否则不要随意输出，会视为错误。
-
 #include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
 struct Person
     {
         int no;
@@ -23,53 +24,40 @@ struct Person
     };
 void sort(Person * array,int n)
 {
-    if (array == NULL )
+    int i,j;
+    Person t;
+    if (array != NULL && n >0)
+    {
+            for(i=0;i<n-1;++i)
+        {
+            for(j=0;j<n-i-1;++j)
+            {
+                if(array[j].no>array[j+1].no)
+                {
+                    t=array[j];
+                    array[j]=array[j+1];
+                    array[j+1]=t;
+                }
+                else if(array[j].no==array[j+1].no&&array[j].age>array[j+1].age)
+                {
+                    t=array[j];
+                    array[j]=array[j+1];
+                    array[j+1]=t;
+                }
+                else if(array[j].no==array[j+1].no&&array[j].age==array[j+1].age&&array[j].height>array[j+1].height)
+                {
+                    t=array[j];
+                    array[j]=array[j+1];
+                    array[j+1]=t;
+                }
+            }
+        }
+    }
+    else
     {
         printf("error");
-        return ;
-    }
-    int temp = 0 ,changed;
-    for (int i = 0; i < n; i++)
-    {
-        changed=0;
-        for (int j = 1; j <=n-i ; j++)
-        {
-            if ((array)->no > (array+1)->no)
-            {
-                temp = (array+1)->no;
-                (array+1)->no = (array)->no;
-                (array)->no = temp;
-                changed = 1;
-            }
-            
-            if ((array)->no = (array+1)->no)
-            {   
-                if ((array)->age > (array+1)->age)
-                {
-                    temp = (array+1)->age;
-                    (array+1)->age = (array)->age;
-                    (array)->age = temp;
-                    changed = 1;
-                }
-                if ((array)->age = (array+1)->age)
-                {
-                    if ((array)->height > (array+1)->height)
-                    {
-                        temp = (array+1)->height;
-                        (array+1)->height = (array)->height;
-                        (array)->height = temp;
-                        changed = 1;
-                    }
-                }
-            }
-        }
-        array++;
-        if (changed == 0)
-        {
-            break;
-        }
-
     }
 }
+
     
 
