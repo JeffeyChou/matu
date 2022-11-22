@@ -1,5 +1,6 @@
 {
-    "files.associations": {
-        "array": "cpp"
-    }
+  "files.associations": {
+    "array": "cpp",
+    "stdbool.h": "c"
+  }
 }

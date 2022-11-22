@@ -16,34 +16,33 @@
 // int data;
 // struct node *next;
 // };
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 struct node
 {
     int data;
     struct node *next;
 };
-int main(int data[],int n)
+int main(int data[], int n)
 {
-    struct node *header,*tail;
+    struct node *header, *tail;
     if (!data)
     {
         printf("error");
         return (int)NULL;
     }
-    tail = header = (struct node*) malloc(sizeof(struct node));
-    tail=header;
-    header->data=0;
-    header->next=NULL;
-    for(int i = 0; i<n; ++i)
+    tail = header = (struct node *)malloc(sizeof(struct node));
+    tail = header;
+    header->data = 0;
+    header->next = NULL;
+    for (int i = 0; i < n; ++i)
     {
-        struct node *pend = (struct node*) malloc(sizeof(struct node));
-    pend->data=data[i];
-    pend->next=NULL;
-    header->next=pend;
-    header = pend;
+        struct node *pend = (struct node *)malloc(sizeof(struct node));
+        pend->data = data[i];
+        pend->next = NULL;
+        header->next = pend;
+        header = pend;
     }
     header = tail;
     return (int)header;
 }
-
